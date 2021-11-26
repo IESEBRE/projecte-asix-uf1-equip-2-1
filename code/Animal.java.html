@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>Animal.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Animal.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">projecte</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.sun.source.tree.IfTree</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.nio.charset.StandardCharsets</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Animal {</span>
+    <span class="s2">//</span>
+    <span class="s0">void </span><span class="s1">Animal() {}</span>
+    <span class="s0">boolean </span><span class="s1">talking() {</span>
+        <span class="s2">// Que tipo de animal eres?</span>
+        <span class="s1">Scanner scanner = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Di una letra para asignar un animal:&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String animaltipos = scanner.next()</span><span class="s0">; </span><span class="s2">// Pedimos un carcter</span>
+        <span class="s0">byte</span><span class="s1">[] animaltiposBytes = animaltipos.getBytes(StandardCharsets.US_ASCII)</span><span class="s0">;</span><span class="s2">// Pasamamos el paramatre que nos pasan por linea a numero</span>
+
+        <span class="s2">// Hacemos que coja la primera letra del nombre que ha puesto y dependiendo de su valor en codigo ASCII sera uno animal u otro</span>
+        <span class="s0">if </span><span class="s1">(animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &gt;= </span><span class="s4">65 </span><span class="s1">&amp;&amp; animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &lt;= </span><span class="s4">74</span><span class="s1">) {</span>
+            <span class="s1">System.out.println( </span><span class="s3">&quot;Es un Perrito&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &gt;= </span><span class="s4">75 </span><span class="s1">&amp;&amp; animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &lt;= </span><span class="s4">79 </span><span class="s1">|| animaltiposBytes[</span><span class="s4">0</span><span class="s1">] == </span><span class="s4">63</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Es un Mono&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &gt;= </span><span class="s4">80 </span><span class="s1">&amp;&amp; animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &lt;= </span><span class="s4">90</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Es una Serpiente&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{}</span>
+
+
+        <span class="s2">// caracter resultado que te gusta jugar</span>
+        <span class="s1">scanner.nextLine()</span><span class="s0">;</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s0">boolean </span><span class="s1">juego = </span><span class="s0">false;</span>
+        <span class="s0">while </span><span class="s1">(!juego) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Caracter resultado que le gusta jugar?&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">System.out.print(</span><span class="s3">&quot;Opción: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+
+            <span class="s1">String animaljugar = scanner.nextLine()</span><span class="s0">;</span>
+            <span class="s0">switch </span><span class="s1">(animaljugar) {</span>
+                <span class="s0">case </span><span class="s3">&quot;A&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al Ajedrez!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;B&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al Basquet!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;C&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al Críquet!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;D&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al los Dados!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;E&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Has acertado!!!!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;F&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al Futbol!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;G&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al Golf!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;H&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Le gusta jugar al Hockey!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;I&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Has elegido Ice Hockey!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s3">&quot;J&quot;</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Jabalina!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">true;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">default</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s3">&quot;Letra equivocada, vuelve a intentarlo&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">juego = </span><span class="s0">false;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s2">// Quin es el teu caracter favorit?</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Cual es tu caracter favorito?&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String caracter = scanner.next()</span><span class="s0">;</span>
+        <span class="s0">byte</span><span class="s1">[] caracterBytes = caracter.getBytes(StandardCharsets.US_ASCII)</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">caractermitad = (caracterBytes[</span><span class="s4">0</span><span class="s1">] - </span><span class="s4">65</span><span class="s1">)/</span><span class="s4">2</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">caracterresultado = caracterBytes[</span><span class="s4">0</span><span class="s1">] - caractermitad</span><span class="s0">;</span>
+        <span class="s0">char </span><span class="s1">caracterconvertido = (</span><span class="s0">char</span><span class="s1">)caracterresultado</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Tu caracter favorito es &quot; </span><span class="s1">+ caracterconvertido)</span><span class="s0">;</span>
+
+
+        <span class="s2">// Listar valores</span>
+
+
+
+
+
+        <span class="s2">// Jugemos a las onomatopeyas</span>
+
+
+
+
+
+        <span class="s2">// Ponle un nombre</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">scanner.nextLine()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ponle un nombre&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String nombre = scanner.nextLine()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Gracias me gusta este nombre ^^&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+
+        <span class="s2">// Puedes recordar la conversacion?</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot; Puedes recordar la conversacion?&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">scanner.nextLine()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Mi nombre es &quot; </span><span class="s1">+ nombre)</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &gt;= </span><span class="s4">65 </span><span class="s1">&amp;&amp; animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &lt;= </span><span class="s4">74</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Soy un Perrito&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &gt;= </span><span class="s4">75 </span><span class="s1">&amp;&amp; animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &lt;= </span><span class="s4">79 </span><span class="s1">|| animaltiposBytes[</span><span class="s4">0</span><span class="s1">] == </span><span class="s4">63</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Soy un Mono&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">if </span><span class="s1">(animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &gt;= </span><span class="s4">80 </span><span class="s1">&amp;&amp; animaltiposBytes[</span><span class="s4">0</span><span class="s1">] &lt;= </span><span class="s4">90</span><span class="s1">) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Soy una Serpiente&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{}</span>
+
+
+
+        <span class="s0">return true;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
