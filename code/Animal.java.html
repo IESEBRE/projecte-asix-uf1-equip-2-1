@@ -32,12 +32,15 @@ public class Animal {
                     // Hacemos que coja la primera letra del nombre que ha puesto y dependiendo de su valor en codigo ASCII sera uno animal u otro
                     if (animaltiposBytes[0] >= 65 && animaltiposBytes[0] <= 74) {
                         System.out.println("Es un Perrito");
+                        String animalfinal = "Perrito";
                     }
                     if (animaltiposBytes[0] >= 75 && animaltiposBytes[0] <= 79 || animaltiposBytes[0] == 63) {
                         System.out.println("Es un Mono");
+                        String animalfinal = "Mono";
                     }
                     if (animaltiposBytes[0] >= 80 && animaltiposBytes[0] <= 90) {
                         System.out.println("Es una Serpiente");
+                        String animalfinal = "Serpiente";
                     } else {
                     }
                     opcion = true;
