@@ -11,6 +11,8 @@ public class Animal {
     }
 
     boolean talking() {
+        boolean orden[];
+        orden = new boolean[7];
         Scanner scanner = new Scanner(System.in);
         System.out.println("1. Que animal eres?");
         System.out.println("2. A que te gusta jugar?");
@@ -48,135 +50,171 @@ public class Animal {
                         animalfinal = "Serpiente";
                     } else {
                     }
+                    orden[0] = true;
                     opcion = true;
                     break;
                 case 2:
-                    // A que te gusta jugar
-                    scanner.nextLine();
-                    System.out.println();
-                    // Bastante simple añadimos un boolean y cuando escoge uno de las letras permitidas el programa acaba, y si no le vuelve a pedir la letra
-                    boolean juego = false;
-                    while (!juego) {
-                        System.out.println("A que le gusta jugar?");
-                        System.out.print("Opción: ");
+                    if (orden[0] && orden[1] == false) {
+                        // A que te gusta jugar
+                        scanner.nextLine();
+                        System.out.println();
+                        // Bastante simple añadimos un boolean y cuando escoge uno de las letras permitidas el programa acaba, y si no le vuelve a pedir la letra
+                        boolean juego = false;
+                        while (!juego) {
+                            System.out.println("A que le gusta jugar?");
+                            System.out.print("Opción: ");
 
 
-                        String animaljugar = scanner.nextLine();
-                        switch (animaljugar) {
-                            case "A":
-                                System.out.println("Le gusta jugar al Ajedrez!");
-                                juego = true;
-                                break;
-                            case "B":
-                                System.out.println("Le gusta jugar al Basquet!");
-                                juego = true;
-                                break;
-                            case "C":
-                                System.out.println("Le gusta jugar al Críquet!");
-                                juego = true;
-                                break;
-                            case "D":
-                                System.out.println("Le gusta jugar al los Dados!");
-                                juego = true;
-                                break;
-                            case "E":
-                                System.out.println("Has acertado!!!!");
-                                juego = true;
-                                break;
-                            case "F":
-                                System.out.println("Le gusta jugar al Futbol!");
-                                juego = true;
-                                break;
-                            case "G":
-                                System.out.println("Le gusta jugar al Golf!");
-                                juego = true;
-                                break;
-                            case "H":
-                                System.out.println("Le gusta jugar al Hockey!");
-                                break;
-                            case "I":
-                                System.out.println("Has elegido Ice Hockey!");
-                                juego = true;
-                                break;
-                            case "J":
-                                System.out.println("Jabalina!");
-                                juego = true;
-                                break;
-                            default:
-                                System.out.println("Letra equivocada, vuelve a intentarlo");
-                                juego = false;
+                            String animaljugar = scanner.nextLine();
+                            switch (animaljugar) {
+                                case "A":
+                                    System.out.println("Le gusta jugar al Ajedrez!");
+                                    juego = true;
+                                    break;
+                                case "B":
+                                    System.out.println("Le gusta jugar al Basquet!");
+                                    juego = true;
+                                    break;
+                                case "C":
+                                    System.out.println("Le gusta jugar al Críquet!");
+                                    juego = true;
+                                    break;
+                                case "D":
+                                    System.out.println("Le gusta jugar al los Dados!");
+                                    juego = true;
+                                    break;
+                                case "E":
+                                    System.out.println("Has acertado!!!!");
+                                    juego = true;
+                                    break;
+                                case "F":
+                                    System.out.println("Le gusta jugar al Futbol!");
+                                    juego = true;
+                                    break;
+                                case "G":
+                                    System.out.println("Le gusta jugar al Golf!");
+                                    juego = true;
+                                    break;
+                                case "H":
+                                    System.out.println("Le gusta jugar al Hockey!");
+                                    break;
+                                case "I":
+                                    System.out.println("Has elegido Ice Hockey!");
+                                    juego = true;
+                                    break;
+                                case "J":
+                                    System.out.println("Jabalina!");
+                                    juego = true;
+                                    break;
+                                default:
+                                    System.out.println("Letra equivocada, vuelve a intentarlo");
+                                    juego = false;
+                            }
+                            orden[1] = true;
                         }
+                    } else {
+                        System.out.println("Tienes que seguir las opciones en orden y sin repetir. Vuelve a intentarlo!!!");
                     }
                     opcion = true;
                     break;
                 case 3:
                     // Quin es el teu caracter favorit?
-                    System.out.println("");
-                    System.out.println("Cual es tu caracter favorito?");
-                    String caracter = scanner.next();
-                    byte[] caracterBytes = caracter.getBytes(StandardCharsets.US_ASCII);
-                    int caractermitad = (caracterBytes[0] - 65) / 2;
-                    int caracterresultado = caracterBytes[0] - caractermitad;
-                    char caracterconvertido = (char) caracterresultado;
-                    System.out.println("Tu caracter favorito es " + caracterconvertido);
-                    caracterfavorito = caracterconvertido;
-                    opcion = true;
-                    break;
+                    if (orden[1] && orden[2] == false) {
+                        System.out.println("");
+                        System.out.println("Cual es tu caracter favorito?");
+                        String caracter = scanner.next();
+                        byte[] caracterBytes = caracter.getBytes(StandardCharsets.US_ASCII);
+                        int caractermitad = (caracterBytes[0] - 65) / 2;
+                        int caracterresultado = caracterBytes[0] - caractermitad;
+                        char caracterconvertido = (char) caracterresultado;
+                        System.out.println("Tu caracter favorito es " + caracterconvertido);
+                        caracterfavorito = caracterconvertido;
+                        opcion = true;
+                        orden[2] = true;
+                        break;
+                    } else {
+                        System.out.println("Tienes que seguir las opciones en orden y sin repetir. Vuelve a intentarlo!!!");
+                    }
+
                 case 4:
-                    // Listar valores
-                    System.out.println("Dime un valor de la A a la Z");
-                    String a = scanner.next();
-                    String b = scanner.next();
-                    byte[] ab = a.getBytes(StandardCharsets.US_ASCII);
-                    byte[] bb = b.getBytes(StandardCharsets.US_ASCII);
-                    for (int i = ab[0]; i <= bb[0]; i++) {
-                        System.out.println();
-                        for (int j = bb[0]; j >= ab[0]; j--) {
-                            int divi = i / 2;
-                            int divj = j / 2;
-                            int prueba = divi + divj;
-                            char caracterconvertido2 = (char) prueba;
-                            if (prueba % 2 == 0 && prueba <= 90 && prueba >= 65) System.out.print(caracterconvertido2 + " ");
+                    if (orden[2] && orden[3] == false) {
+                        // Listar valores
+                        System.out.println("Dime un valor de la A a la Z");
+                        String a = scanner.next();
+                        String b = scanner.next();
+                        byte[] ab = a.getBytes(StandardCharsets.US_ASCII);
+                        byte[] bb = b.getBytes(StandardCharsets.US_ASCII);
+                        for (int i = ab[0]; i <= bb[0]; i++) {
+                            System.out.println();
+                            for (int j = bb[0]; j >= ab[0]; j--) {
+                                int divi = i / 2;
+                                int divj = j / 2;
+                                int prueba = divi + divj;
+                                char caracterconvertido2 = (char) prueba;
+                                if (prueba % 2 == 0 && prueba <= 90 && prueba >= 65)
+                                    System.out.print(caracterconvertido2 + " ");
+                            }
                         }
+                        orden[3] = true;
+                    } else {
+                        System.out.println("Tienes que seguir las opciones en orden y sin repetir. Vuelve a intentarlo!!!");
                     }
                     opcion = true;
                     break;
                 case 5:
-                    // onomatopeies
-                    // Creamos un bucle para que acabe a la cuenta de 10
-                    Random random = new Random();
-                    for (int i = 0; i != 10; i++) {
-                        char randomizedCharacter = (char) (random.nextInt(26) + 'a'); // randomizamos el caracter
-                        // Como lo que nos pide es vocal/consonante o vocal/vocal la que predomina en ambas es la vocal asi que hacemos que se generen solo vocales para cumplir este requisito
-                        if (randomizedCharacter == 'a' || randomizedCharacter == 'e' || randomizedCharacter == 'i' || randomizedCharacter == 'o' || randomizedCharacter == 'u') {
-                            String ono = scanner.next();
-                            System.out.print(ono + randomizedCharacter);
-                        } else {
-                            i = i - 1; // contrarestamos el numero que se suma
+                    if (orden[3] && orden[4] == false) {
+                        // onomatopeies
+                        // Creamos un bucle para que acabe a la cuenta de 10
+                        Random random = new Random();
+                        for (int i = 0; i != 10; i++) {
+                            char randomizedCharacter = (char) (random.nextInt(26) + 'a'); // randomizamos el caracter
+                            // Como lo que nos pide es vocal/consonante o vocal/vocal la que predomina en ambas es la vocal asi que hacemos que se generen solo vocales para cumplir este requisito
+                            if (randomizedCharacter == 'a' || randomizedCharacter == 'e' || randomizedCharacter == 'i' || randomizedCharacter == 'o' || randomizedCharacter == 'u') {
+                                String ono = scanner.next();
+                                System.out.print(ono + randomizedCharacter);
+                            } else {
+                                i = i - 1; // contrarestamos el numero que se suma
+                            }
                         }
+                        orden[4] = true;
+                    } else{
+                        System.out.println("Tienes que seguir las opciones en orden y sin repetir. Vuelve a intentarlo!!!");
                     }
                     opcion = true;
                     break;
                 case 6:
-                    // Ponle un nombre
-                    System.out.println();
-                    scanner.nextLine();
-                    System.out.println("Ponle un nombre");
-                    String nombre = scanner.nextLine();
-                    nombre1 = nombre;
-                    System.out.println("Gracias me gusta este nombre ^^");
-                    opcion = true;
-                    break;
+                    if (orden[4] && orden[5] == false) {
+                        // Ponle un nombre
+                        System.out.println();
+                        scanner.nextLine();
+                        System.out.println("Ponle un nombre");
+                        String nombre = scanner.nextLine();
+                        nombre1 = nombre;
+                        System.out.println("Gracias me gusta este nombre ^^");
+                        opcion = true;
+                        orden[5] = true;
+                        break;
+                    } else {
+                        System.out.println("Tienes que seguir las opciones en orden y sin repetir. Vuelve a intentarlo!!!");
+                    }
                 case 7:
-                    // Puedes recordar la conversacion?
-                    System.out.println("Hola, soy un "+ animalfinal + "mi nombre es " + nombre1 + "y mi caracter favorito es " + caracterfavorito);
-                    opcion = true;
-                    break;
+                    if (orden[5] && orden[6] == false) {
+                        // Puedes recordar la conversacion?
+                        System.out.println("Hola, soy un " + animalfinal + "mi nombre es " + nombre1 + "y mi caracter favorito es " + caracterfavorito);
+                        opcion = true;
+                        orden[6] = true;
+                        break;
+                    } else {
+                        System.out.println("Tienes que seguir las opciones en orden y sin repetir. Vuelve a intentarlo!!!");
+                    }
                 case 8:
-                    System.out.println("¡Adios!");
-                    opcion = false;
-                    break;
+                    if (orden[6] == true) {
+                        System.out.println("¡Adios!");
+                        opcion = false;
+                        break;
+                    }
             }
+
         } while (opcion != false);
         return true;
     }
