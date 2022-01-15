@@ -1,83 +1,30 @@
 package projecte;
 
+import projecte.Alien;
+import projecte.Animal;
+import projecte.Person;
+
 import java.util.Scanner;
 public class Main {
-    public static Scanner teclat = new Scanner(System.in);
-    public static boolean numero;
     public static void main(String[] args) {
-
-        int num = Integer.parseInt(teclat.nextLine());
-        numero = num != 0;
-        int cuanto = -1;
-        String [] conversacion;
-        int cuantos = Integer.parseInt(teclat.nextLine());
-        num = cuantos;
-        conversacion = new String[cuantos];
-        while (true) {
-            if (numero) System.out.println("1. Hablar");
-            if (numero) System.out.println("2. Mostrar la converssación");
-            if (numero) System.out.println("3. Salir");
-        switch (Integer.parseInt((teclat.nextLine()))){
-
-            case 1:
-                if (num == 0) {System.out.println("No puedes hablar mas");
-                    break;}
-                    if (numero) System.out.println("Amb qui vols conversar?");
-                    if (numero) System.out.println(" - Persona");
-                    if (numero) System.out.println(" - Animal");
-                    if (numero) System.out.println(" - Extraterrestre");
-                    if (numero) System.out.print("Opció: ");
-
+        boolean finish = false;
         do {
+            Scanner scanner = new Scanner(System.in);
             // Escollir amb qui volem conversar
-
-            switch (teclat.nextLine()) {
-
-
+            System.out.println("Amb qui vols conversar?");
+            System.out.println(" - Persona");
+            System.out.println(" - Animal");
+            System.out.print("Opció: ");
+            switch (scanner.nextLine()) {
                 case "Persona":
                     Person person = new Person();
-                    cuanto++;
-                    conversacion[cuanto] = String.valueOf(person.talking());
-
-                    num--;
+                    finish = person.talking();
                     break;
                 case "Animal":
                     Animal animal = new Animal();
-                    cuanto++;
-                    conversacion[cuanto] = String.valueOf(animal.talking());
-
-                    num--;
-                    break;
-                case "Extraterrestre":
-                    cuanto++;
-                    Alien extraterrestre = new Alien();
-                    conversacion[cuanto] = String.valueOf(extraterrestre.talking());
-                    num--;
-                    break;
-
-                default:
-                    System.out.println("Prueba otro");
+                    finish = animal.talking();
                     break;
             }
-        } while (num!=0);
-            break;
-
-            case 2:
-                if (cuanto==-1) System.out.println("No puedes hablar mas");
-                else { if (numero) System.out.printf("que conversación quieres ver (1-%d):",cuantos);
-                    int i = teclat.nextInt();
-                    System.out.println(conversacion[i-1]);}
-                break;
-
-            case 3:
-
-                        return;
-
-                    default:
-                        System.out.println("Opcio incorrecta. Torna-ho a intentar!!");
-                        break;
+        } while (!finish);
     }
-        }
-
-        }
 }
